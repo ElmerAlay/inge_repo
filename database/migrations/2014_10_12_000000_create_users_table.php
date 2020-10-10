@@ -13,12 +13,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        //Primer parámetro es el nombre de la tabla que queremos que tenga en la bd
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            /*
+            No genera una columna en sí
+            Por ejemplo, laravel guarda la info de los usuarios que han visitado
+            la página para visitas posteriores.
+            //Específicamente para el botón "recuerda me"
+            */
             $table->rememberToken();
             $table->timestamps();
         });
