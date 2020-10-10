@@ -27,6 +27,12 @@ class CreateUsersTable extends Migration
             //Específicamente para el botón "recuerda me"
             */
             $table->rememberToken();
+            /*
+            Como esta columna no estaba al inicio no puedo volver a realizar
+            php artisan migrate
+            porque no va a actualizar, revisar la docu para ver lo que procede
+            */
+            $table->integer('estado');
             $table->timestamps();
         });
     }
