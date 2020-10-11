@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Escuela;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +26,7 @@ class TemporalSeeder extends Seeder
         //dd($escuela);
         //DB::statement('drop table users');
 
-        DB::insert('insert into escuela (nombre) values (?)', ['Mecanica']);
+        /*DB::insert('insert into escuela (nombre) values (?)', ['Mecanica']);
 
         $escuela = db::select('select * from escuela');
         //echo($escuela);
@@ -37,6 +38,19 @@ class TemporalSeeder extends Seeder
         $escuela = DB::select('select * from escuela where idescuela = ?', [1]);
 
         //dd($escuela[0]->idescuela);
-        DB::insert('insert into area (escuela, nombre) values (?, ?)', [$escuela[0]->idescuela, 'Desarrollo']);
+        DB::insert('insert into area (escuela, nombre) values (?, ?)', [$escuela[0]->idescuela, 'Desarrollo']);*/
+
+        //dd(Escuela::all());
+
+        /*dd(Escuela::where('nombre', 'Mecánica')
+        ->orderBy('nombre', 'desc')
+        ->take(1)
+        ->get());*/
+
+        //dd(Escuela::all()->first()->nombre);
+
+        $escuela = new Escuela;
+        $escuela->nombre='hola';
+        $escuela->save();
     }
 }
